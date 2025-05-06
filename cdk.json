@@ -85,9 +85,5 @@
     "@aws-cdk/aws-dynamodb:retainTableReplica": true,
     "@aws-cdk/aws-stepfunctions:useDistributedMapResultWriterV2": true
   },
-  "profile": "grestrepo",
-  "env": {
-    "account": "235460647427",
-    "region": "us-east-1"
-  }
+  "profile": "grestrepo"
 }
