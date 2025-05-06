@@ -5,5 +5,7 @@ import { Construct } from "constructs";
 export class MicroservicioAprobacionReembolsosStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
+
+    console.log("MicroservicioAprobacionReembolsosStack");
   }
 }
