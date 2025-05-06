@@ -84,5 +84,6 @@
     "@aws-cdk/core:aspectPrioritiesMutating": true,
     "@aws-cdk/aws-dynamodb:retainTableReplica": true,
     "@aws-cdk/aws-stepfunctions:useDistributedMapResultWriterV2": true
-  }
+  },
+  "profile": "grestrepo"
 }

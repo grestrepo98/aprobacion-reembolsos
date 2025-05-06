@@ -43,7 +43,6 @@ export class MicroservicioAprobacionReembolsosPipelineStack extends cdk.Stack {
             installCommands: [
               "npm install",
               "npm install -g aws-cdk",
-              "npm install",
               'echo "Compilando la aplicación..."',
               'echo "Creando archivo .env..."',
               'echo "ENV=$ENV" > .env',

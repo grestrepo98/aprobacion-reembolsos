@@ -4,7 +4,7 @@ import { StackProps, Stage } from "aws-cdk-lib";
 import { MicroservicioAprobacionReembolsosStack } from "../../microservicio-aprobacion-reembolsos-stack";
 import { envs } from "../../../config/envs";
 /**
- * Represents a pipeline stage for the MicroservicioProcesos service.
+ * Represents a pipeline stage for the MicroservicioAprobacionReembolsos service.
  *
  * @class
  * @extends {Stage}
