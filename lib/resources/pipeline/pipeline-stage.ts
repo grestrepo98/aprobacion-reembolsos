@@ -2,7 +2,7 @@ import { Construct } from "constructs";
 import { StackProps, Stage } from "aws-cdk-lib";
 
 import { MicroservicioAprobacionReembolsosStack } from "../../microservicio-aprobacion-reembolsos-stack";
-
+import { envs } from "../../../config/envs";
 /**
  * Represents a pipeline stage for the MicroservicioProcesos service.
  *
@@ -17,7 +17,7 @@ export class MicroservicioAprobacionReembolsosPipelineStage extends Stage {
     this.microservicioAprobacionReembolsosStack =
       new MicroservicioAprobacionReembolsosStack(
         this,
-        "MicroservicioAprobacionReembolsosStack",
+        `MicroservicioAprobacionReembolsosStack-${envs.ENV}`,
         { env: props?.env }
       );
   }

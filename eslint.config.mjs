@@ -11,13 +11,10 @@ export default [
   {
     rules: {
       "no-console": "warn",
-      "semi": "warn",
       "no-unused-vars": "warn",
       "no-undef": "warn",
       "no-undef-init": "warn",
-      "no-unused-imports": "warn",
-      "no-unused-vars": "warn",
-      "no-unused-vars": "warn",
+      "no-unused-imports": "warn"
     },
   },
 ];
