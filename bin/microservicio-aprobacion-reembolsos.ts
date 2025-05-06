@@ -1,18 +1,19 @@
 #!/usr/bin/env node
 import * as cdk from "aws-cdk-lib";
-import { MicroservicioAprobacionReembolsosStack } from "../lib/microservicio-aprobacion-reembolsos-stack";
 import { envs } from "../config/envs";
 const app = new cdk.App();
 
-new MicroservicioAprobacionReembolsosStack(
+import { MicroservicioAprobacionReembolsosPipelineStack } from "../lib/resources/pipeline/pipeline-stack";
+
+new MicroservicioAprobacionReembolsosPipelineStack(
   app,
-  `MicroservicioAprobacionReembolsosStack-${envs.ENV}`,
+  `MicroservicioAprobacionReembolsosPipelineStack-${envs.ENV}`,
   {
     env: {
       account: envs.AWS_ACCOUNT,
       region: envs.AWS_REGION,
     },
-    description: "Microservicio de aprobación de reembolsos",
+    description: "Pipeline de aprobación de reembolsos",
   }
 );
 
