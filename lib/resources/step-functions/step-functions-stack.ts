@@ -20,14 +20,14 @@ export class MicroservicioAprobacionReembolsosStepFunctionsStack extends Stack {
     super(scope, id, props);
 
     this.lambdaA = new lambda.Function(this, `LambdaA-${envs.ENV}`, {
-      code: lambda.Code.fromAsset(path.join(__dirname, 'LambdaA')),
+      code: lambda.Code.fromAsset(path.join(__dirname, 'lambda/LambdaA')),
       handler: 'index.handler',
       runtime: lambda.Runtime.NODEJS_22_X,
       functionName: `LambdaA-${envs.ENV}`,
     });
 
     this.lambdaB = new lambda.Function(this, `LambdaB-${envs.ENV}`, {
-      code: lambda.Code.fromAsset(path.join(__dirname, 'LambdaB')),
+      code: lambda.Code.fromAsset(path.join(__dirname, 'lambda/LambdaB')),
       handler: 'index.handler',
       runtime: lambda.Runtime.NODEJS_22_X,
       functionName: `LambdaB-${envs.ENV}`,
