@@ -51,7 +51,8 @@ export class MicroservicioAprobacionReembolsosStepFunctionsStack extends Stack {
 
     // Create the State Machine
     this.stateMachine = new sfn.StateMachine(this, `StateMachine-${envs.ENV}`, {
-      definition: this.definition,
+      // definition: this.definition,
+      definitionBody: sfn.DefinitionBody.fromChainable(this.definition),
       stateMachineType: sfn.StateMachineType.STANDARD,
       stateMachineName: `StateMachine-${envs.ENV}`,
     });
