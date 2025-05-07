@@ -15,7 +15,7 @@ export class MicroservicioAprobacionReembolsosStepFunctionsStack extends Stack {
     super(scope, id, props);
 
     this.startState = Pass.jsonata(this, `StartState-${envs.ENV}`, {
-      stateName: 'StartState',
+      stateName: `StartState-${envs.ENV}`,
     });
 
     this.stateMachine = new StateMachine(this, `StateMachine-${envs.ENV}`, {
