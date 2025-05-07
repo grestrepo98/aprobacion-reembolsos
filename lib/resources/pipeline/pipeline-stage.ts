@@ -18,7 +18,7 @@ export class MicroservicioAprobacionReembolsosPipelineStage extends Stage {
       new MicroservicioAprobacionReembolsosStack(
         this,
         `MicroservicioAprobacionReembolsosStack-${envs.ENV}`,
-        { env: props?.env }
+        { env: props?.env },
       );
   }
 }

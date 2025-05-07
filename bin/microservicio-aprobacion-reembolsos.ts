@@ -14,7 +14,7 @@ new MicroservicioAprobacionReembolsosPipelineStack(
       region: envs.AWS_REGION,
     },
     description: "Pipeline de aprobación de reembolsos",
-  }
+  },
 );
 
 app.synth();

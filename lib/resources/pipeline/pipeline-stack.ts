@@ -20,7 +20,7 @@ export class MicroservicioAprobacionReembolsosPipelineStack extends cdk.Stack {
     this.source = CodePipelineSource.connection(
       `${envs.GITHUB_OWNER}/${envs.GITHUB_REPOSITORY}`,
       envs.ENV,
-      { connectionArn: envs.GITHUB_ARN_CONNECTION!! }
+      { connectionArn: envs.GITHUB_ARN_CONNECTION!! },
     );
 
     this.pipeline = new CodePipeline(
@@ -54,18 +54,18 @@ export class MicroservicioAprobacionReembolsosPipelineStack extends cdk.Stack {
               "cat .env",
             ],
             commands: ["npm ci", "npx cdk synth"],
-          }
+          },
         ),
-      }
+      },
     );
 
     this.pipeline.addStage(
       new MicroservicioAprobacionReembolsosPipelineStage(
         this,
         `MicroservicioAprobacionReembolsosPipelineStage-${envs.ENV}`,
-        { env: props?.env }
+        { env: props?.env },
       ),
-      {}
+      {},
     );
   }
 }

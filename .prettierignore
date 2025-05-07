@@ -1,0 +1,30 @@
+# Ignore artifacts:
+build
+coverage
+
+# Ignore all HTML files:
+**/*.html
+
+# Ignore all JSON files:
+**/*.json
+
+# Ignore all YAML files:
+**/*.yaml
+
+# Ignore all CSV files:
+**/*.csv
+
+# Ignore all XML files:
+**/*.xml
+
+# Ignore all JS files:
+**/*.js
+
+# Ignore all mjs files:
+**/*.mjs
+
+# Ignore all cjs files:
+**/*.cjs
+
+# Ignore all md files:
+**/*.md
