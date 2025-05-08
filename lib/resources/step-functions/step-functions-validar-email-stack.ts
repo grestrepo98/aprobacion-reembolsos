@@ -95,8 +95,13 @@ export class StepFunctionsValidarEmailStack extends Stack {
 
     this.unirResultado = new sfn.Pass(this, `unir-resultado-${envs.ENV}`, {
       parameters: {
-        emailValido: sfn.JsonPath.stringAt('$.0.emailValido'),
-        saldoSuficiente: sfn.JsonPath.stringAt('$.1.saldoSuficiente'),
+        emailValido: sfn.JsonPath.stringAt(
+          sfn.JsonPath.arrayGetItem('$$.Execution.Input', 0) + '.emailValido'
+        ),
+        saldoSuficiente: sfn.JsonPath.stringAt(
+          sfn.JsonPath.arrayGetItem('$$.Execution.Input', 1) +
+            '.saldoSuficiente'
+        ),
       },
     });
 
