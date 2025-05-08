@@ -3,10 +3,12 @@ import { Construct } from 'constructs';
 import { MicroservicioAprobacionReembolsosStepFunctionsStack } from './resources/step-functions/step-functions-stack';
 import { envs } from '../config/envs';
 import { StepFunctionsRevisarMontoStack } from './resources/step-functions/step-functions-revisar-monto-stack';
+import { StepFunctionsRevisarSolicitudStack } from './resources/step-functions/step-functions-revisar-solicitud-stack';
 
 export class MicroservicioAprobacionReembolsosStack extends cdk.Stack {
   private stepFunctionsStack: MicroservicioAprobacionReembolsosStepFunctionsStack;
   private stepFunctionsRevisarMontoStack: StepFunctionsRevisarMontoStack;
+  private stepFunctionsRevisarSolicitudStack: StepFunctionsRevisarSolicitudStack;
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
@@ -26,5 +28,14 @@ export class MicroservicioAprobacionReembolsosStack extends cdk.Stack {
         env: props?.env,
       }
     );
+
+    this.stepFunctionsRevisarSolicitudStack =
+      new StepFunctionsRevisarSolicitudStack(
+        this,
+        `StepFunctionsRevisarSolicitudStack-${envs.ENV}`,
+        {
+          env: props?.env,
+        }
+      );
   }
 }
