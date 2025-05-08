@@ -15,6 +15,7 @@ export class StepFunctionsValidarEmailStack extends Stack {
   private paralelo: sfn.Parallel;
   private stateMachine: sfn.StateMachine;
   private finalizarTarea: tasks.LambdaInvoke;
+  private unirResultado: sfn.Pass;
 
   constructor(scope: Construct, id: string, props: StackProps) {
     super(scope, id, props);
@@ -92,7 +93,14 @@ export class StepFunctionsValidarEmailStack extends Stack {
       }
     );
 
-    this.paralelo.next(this.finalizarTarea);
+    this.unirResultado = new sfn.Pass(this, `unir-resultado-${envs.ENV}`, {
+      parameters: {
+        emailValido: sfn.JsonPath.stringAt('$.0.emailValido'),
+        saldoSuficiente: sfn.JsonPath.stringAt('$.1.saldoSuficiente'),
+      },
+    });
+
+    this.paralelo.next(this.unirResultado).next(this.finalizarTarea);
 
     this.stateMachine = new sfn.StateMachine(
       this,

@@ -5,7 +5,12 @@ import { Handler } from 'aws-lambda';
 //   ValidarSaldo: { saldoSuficiente: boolean };
 // }
 
-type Event = [{ emailValido: boolean }, { saldoSuficiente: boolean }];
+// type Event = [{ emailValido: boolean }, { saldoSuficiente: boolean }];
+
+interface Event {
+  emailValido: boolean;
+  saldoSuficiente: boolean;
+}
 
 interface Response {
   validacionCompleta: string;
@@ -13,7 +18,7 @@ interface Response {
 
 export const handler: Handler<Event, Response> = async (event) => {
   console.log('event', event);
-  const todoOk = event[0].emailValido && event[1].saldoSuficiente;
+  const todoOk = event.emailValido && event.saldoSuficiente;
   return {
     validacionCompleta: todoOk ? 'TODO_OK' : 'FALLO_VALIDACION',
   };
