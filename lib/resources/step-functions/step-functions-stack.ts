@@ -41,7 +41,7 @@ export class MicroservicioAprobacionReembolsosStepFunctionsStack extends Stack {
 
     this.taskB = new tasks.LambdaInvoke(this, `TaskB-${envs.ENV}`, {
       lambdaFunction: this.lambdaB,
-      inputPath: '$.Payload',
+      // inputPath: '$.Payload',
       // outputPath: '$.Payload',
       stateName: `TaskB-${envs.ENV}`,
     });
