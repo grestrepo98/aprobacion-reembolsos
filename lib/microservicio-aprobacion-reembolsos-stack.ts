@@ -6,13 +6,14 @@ import { StepFunctionsRevisarMontoStack } from './resources/step-functions/step-
 import { StepFunctionsRevisarSolicitudStack } from './resources/step-functions/step-functions-revisar-solicitud-stack';
 import { StepFunctionsValidarEmailStack } from './resources/step-functions/step-functions-validar-email-stack';
 import { StepFunctionsProductosStack } from './resources/step-functions/step-functions-productos-stack';
-
+import { StepFunctionsTareaCriticaStack } from './resources/step-functions/step-functions-tarea-critica-stack';
 export class MicroservicioAprobacionReembolsosStack extends cdk.Stack {
   private stepFunctionsStack: MicroservicioAprobacionReembolsosStepFunctionsStack;
   private stepFunctionsRevisarMontoStack: StepFunctionsRevisarMontoStack;
   private stepFunctionsRevisarSolicitudStack: StepFunctionsRevisarSolicitudStack;
   private stepFunctionsValidarEmailStack: StepFunctionsValidarEmailStack;
   private stepFunctionsProductosStack: StepFunctionsProductosStack;
+  private stepFunctionsTareaCriticaStack: StepFunctionsTareaCriticaStack;
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
@@ -53,6 +54,14 @@ export class MicroservicioAprobacionReembolsosStack extends cdk.Stack {
     this.stepFunctionsProductosStack = new StepFunctionsProductosStack(
       this,
       `StepFunctionsProductosStack-${envs.ENV}`,
+      {
+        env: props?.env,
+      }
+    );
+
+    this.stepFunctionsTareaCriticaStack = new StepFunctionsTareaCriticaStack(
+      this,
+      `StepFunctionsTareaCriticaStack-${envs.ENV}`,
       {
         env: props?.env,
       }
