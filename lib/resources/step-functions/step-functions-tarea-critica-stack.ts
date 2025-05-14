@@ -39,8 +39,8 @@ export class StepFunctionsTareaCriticaStack extends Stack {
       }
     )
       .addRetry({
-        maxAttempts: 2,
-        interval: Duration.seconds(5),
+        maxAttempts: 3,
+        interval: Duration.seconds(2),
       })
       .addCatch(
         new sfn.Fail(this, `Falló definitivamente-${envs.ENV}`, {
