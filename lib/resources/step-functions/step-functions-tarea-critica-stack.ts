@@ -4,6 +4,7 @@ import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as sfn from 'aws-cdk-lib/aws-stepfunctions';
 import * as tasks from 'aws-cdk-lib/aws-stepfunctions-tasks';
 import { envs } from '../../../config/envs';
+import * as path from 'path';
 
 export class StepFunctionsTareaCriticaStack extends Stack {
   public readonly tareaCritica: lambda.Function;
@@ -20,7 +21,9 @@ export class StepFunctionsTareaCriticaStack extends Stack {
       {
         runtime: lambda.Runtime.NODEJS_22_X,
         handler: 'index.handler',
-        code: lambda.Code.fromAsset('lambda/tareaCritica'),
+        code: lambda.Code.fromAsset(
+          path.join(__dirname, 'lambda/tareaCritica')
+        ),
         functionName: `TareaCritica-${envs.ENV}`,
       }
     );
